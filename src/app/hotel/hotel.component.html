@@ -1,0 +1,47 @@
+<div class="container ">
+  <div class="row">
+    <div class="col header-section">
+      <h1>Hotel</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped row-border hover">
+        <thead>
+          <tr>
+            <th>Hotel ID</th>
+            <th>Hotel name</th>
+            <th>Hotel Image</th>
+            <th>Hotel Price</th>
+            <th>Hotel Destination</th>
+            <th hidden>Hotel Destination ID </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of keys">
+            <td>{{ hotel[key].hotelInfo.hotelId }}</td>
+            <td>{{ hotel[key].hotelInfo.hotelName}}</td>
+            <td>
+              <a href="{{hotel[key].hotelUrls.hotelInfositeUrl}}">
+                <img src="{{hotel[key].hotelInfo.hotelImageUrl}}">
+              </a>
+            </td>
+            <td>
+              {{hotel[key].hotelPricingInfo.originalPricePerNight}} {{hotel[key].hotelPricingInfo.currency }}
+            </td>
+            <td>
+              {{hotel[key].destination.shortName }}
+            </td>
+            <td hidden>
+              {{hotel[key].destination.regionID}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
